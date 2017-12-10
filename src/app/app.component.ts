@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import 'rxjs/Rx';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 import { StoriesPage } from '../pages/stories/stories';
 import { StoryPage } from '../pages/story/story';

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { Feed } from '../../providers/feed/feed';
 /**
  * Generated class for the StoriesPage page.
  *
@@ -15,11 +15,21 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class StoriesPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  topic:string;
+  stories:Array<any>;
+  constructor(public feed:Feed, public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad StoriesPage');
+    this.topic = 'cnn_topstories';
+    this.getStories();
+  }
+
+  getStories(){
+    this.feed.getStories(this.topic).subscribe(res => {
+      console.log(res.items);
+      this.stories = res.items;
+    });
   }
 
 }
