@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Feed } from '../../providers/feed/feed';
+import { StoryPage } from '../story/story';
 /**
  * Generated class for the StoriesPage page.
  *
@@ -29,6 +30,10 @@ export class StoriesPage {
     this.feed.getStories(this.topic).subscribe(res => {
       this.stories = res.items;
     });
+  }
+
+  storySelected(story){
+    this.navCtrl.push(StoryPage, story);
   }
 
   changeTopic(){

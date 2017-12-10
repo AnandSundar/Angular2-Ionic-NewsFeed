@@ -14,12 +14,19 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'story.html',
 })
 export class StoryPage {
-
+  story:Object;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad StoryPage');
+    this.story = {
+      title: this.navParams.data.title,
+      content: this.navParams.data.content,
+      pubDate: this.navParams.data.pubDate,
+      image: this.navParams.data.enclosure.link,
+      link: this.navParams.data.link,
+      author: this.navParams.data.author
+    }
   }
 
 }
