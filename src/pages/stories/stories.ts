@@ -27,9 +27,12 @@ export class StoriesPage {
 
   getStories(){
     this.feed.getStories(this.topic).subscribe(res => {
-      console.log(res.items);
       this.stories = res.items;
     });
+  }
+
+  changeTopic(){
+    this.getStories();
   }
 
 }
